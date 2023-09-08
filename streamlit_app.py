@@ -110,8 +110,8 @@ def build_map(df: pd.DataFrame) -> None:
 
 
 if __name__ == "__main__":
-    reviews_file = os.path.join(os.getcwd(), 'data', 'reviews_all_yandex_final_pipeline.csv')
-    coord_file = os.path.join(os.getcwd(), 'data', 'coord-all-yandex.xlsx')
+    reviews_file = os.path.join(os.getcwd(), 'streamlit_front', 'data', 'reviews_all_yandex_final_pipeline.csv')
+    coord_file = os.path.join(os.getcwd(), 'streamlit_front', 'data', 'coord-all-yandex.xlsx')
     df = pd.read_csv(reviews_file)
     coord = pd.read_excel(coord_file)
     df = df.merge(coord, how='left')
