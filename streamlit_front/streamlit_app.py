@@ -1,3 +1,5 @@
+import os
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -108,8 +110,10 @@ def build_map(df: pd.DataFrame) -> None:
 
 
 if __name__ == "__main__":
-    df = pd.read_csv('data/reviews_all_yandex_final_pipeline.csv')
-    coord = pd.read_excel('coord-all-yandex.xlsx')
+    reviews_file = os.path.join(os.getcwd(), 'data', 'reviews_all_yandex_final_pipeline.csv')
+    coord_file = os.path.join(os.getcwd(), 'data', 'coord-all-yandex.xlsx')
+    df = pd.read_csv(reviews_file)
+    coord = pd.read_excel(coord_file)
     df = df.merge(coord, how='left')
     df = df.rename(columns={'store_latitude': 'lat', 'store_longitude': 'lon'})
 
